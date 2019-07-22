@@ -13,15 +13,18 @@ def start_game
   game.set_player2_side
   game.start
 end
+def again_want_to?
+  Display.want_to_play
+  res = gets.chomp
+  return res.upcase == 'Y' || res.upcase == 'YES'
+end
 
 loop do
   if game_count.zero?
     start_game
     game_count += 1
   else
-    Display.want_to_play
-    res = gets.chomp
-    if res.upcase == 'Y' || res.upcase == 'YES'
+    if again_want_to?
       start_game
     else
       Display.thank
