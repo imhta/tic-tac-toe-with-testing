@@ -65,7 +65,7 @@ class Board
     parent_arr[child_pos] = side
     @moves -= 1
     Display.show_board @cells
-    game_over?(parent_pos, child_pos, side, name) if @moves <= 5
+    game_over?(parent_pos, child_pos, side, name)
     @cells
   end
 end

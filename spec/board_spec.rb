@@ -23,14 +23,34 @@ RSpec.describe Board do
                                                         [7, 8, 9]]), 'updating function not working'
     end
     it 'update pos 5 with O' do
-        expect(@board.update(5, 'O', 'test user')).to eq([[1, 2, 3],
-                                                          [4, 'O', 6],
-                                                          [7, 8, 9]]), 'updating function not working'
+      expect(@board.update(5, 'O', 'test user')).to eq([[1, 2, 3],
+                                                        [4, 'O', 6],
+                                                        [7, 8, 9]]), 'updating function not working'
     end
     it 'update pos 9 with X' do
-        expect(@board.update(9, 'X', 'test user')).to eq([[1, 2, 3],
-                                                          [4, 5, 6],
-                                                          [7, 8, 'X']]), 'updating function not working'
+      expect(@board.update(9, 'X', 'test user')).to eq([[1, 2, 3],
+                                                        [4, 5, 6],
+                                                        [7, 8, 'X']]), 'updating function not working'
+    end
+  end
+  describe '#game_over?' do
+    it 'checks if game is over with horizontal alignement' do
+      @board.update(1, 'X', 'test user')
+      @board.update(2, 'X', 'test user')
+      @board.update(3, 'X', 'test user')
+      expect(@board.has_no_winner).to be(false), 'game is not over (horizontal)'
+    end
+    it 'checks if the game is over with vertical alignement' do
+      @board.update(1, 'O', 'test user')
+      @board.update(4, 'O', 'test user')
+      @board.update(7, 'O', 'test user')
+      expect(@board.has_no_winner).to be(false), 'game is not over (vertical)'
+    end
+    it 'checks if the game is over with diagonal alignement' do
+      @board.update(1, 'X', 'test user')
+      @board.update(5, 'X', 'test user')
+      @board.update(9, 'X', 'test user')
+      expect(@board.has_no_winner).to be(false), 'game is not over (diagonal)'
     end
   end
 end
