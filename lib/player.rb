@@ -11,6 +11,7 @@ class Player
   def set_name
     Display.ask_player_name(@player_no)
     @name = gets.chomp
+    @name
   end
 
   def self.ask_side(name)
