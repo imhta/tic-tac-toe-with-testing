@@ -8,11 +8,14 @@ require 'colorize'
 
 # class game to maintain the state of the game
 class Game
-  attr_accessor :board, :player1, :player2
+  attr_accessor :board, :player1, :player2, :turn, :valid_move
   def initialize
     @board = Board.new
     @player1 = Player.new(1)
     @player2 = Player.new(2)
+  end
+
+  def ask_players_name
     @player1.set_name
     @player2.set_name
   end
@@ -20,10 +23,14 @@ class Game
   def ask_player1_side
     loop do
       @player1.side = Player.ask_side @player1.name
-      break if @player1.side == 'X' || @player1.side == 'O'
+      break if valid_player_side?
 
       Error.not_valid_side
     end
+  end
+
+  def valid_player_side?
+    @player1.side == 'X' || @player1.side == 'O'
   end
 
   def set_player2_side
@@ -35,7 +42,6 @@ class Game
     @valid_move = false
     Display.show_board @board.cells
     game_loop
-    Display.draw if @board.moves.zero? && @board.has_no_winner
   end
 
   private
@@ -59,7 +65,7 @@ class Game
   end
 
   def game_loop
-    while !@board.moves.zero? && @board.has_no_winner
+    while @board.not_over?
       ask_move
       @board.update(
         @pos.to_i,
