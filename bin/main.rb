@@ -13,10 +13,11 @@ def start_game
   game.set_player2_side
   game.start
 end
+
 def again_want_to?
   Display.want_to_play
   res = gets.chomp
-  return res.upcase == 'Y' || res.upcase == 'YES'
+  res.upcase == 'Y' || res.upcase == 'YES'
 end
 
 loop do

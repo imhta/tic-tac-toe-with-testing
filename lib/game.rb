@@ -8,7 +8,7 @@ require 'colorize'
 
 # class game to maintain the state of the game
 class Game
-  attr_accessor :board, :player1, :player2
+  attr_accessor :board, :player1, :player2, :turn
   def initialize
     @board = Board.new
     @player1 = Player.new(1)
@@ -20,9 +20,10 @@ class Game
   def ask_player1_side
     loop do
       @player1.side = Player.ask_side @player1.name
+      Error.not_valid_side
+
       break if @player1.side == 'X' || @player1.side == 'O'
 
-      Error.not_valid_side
     end
   end
 
@@ -71,6 +72,4 @@ class Game
       @valid_move = false
     end
   end
-
-
 end

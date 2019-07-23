@@ -47,7 +47,7 @@ module Display
   end
 
   def self.ask_position(player_name)
-    puts "#{player_name}, choose me a position"
+    puts "#{player_name}, choose a position"
   end
 
   def self.want_to_play
