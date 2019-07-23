@@ -9,6 +9,7 @@ game_count = 0
 
 def start_game
   game = Game.new
+  game.ask_players_name
   game.ask_player1_side
   game.set_player2_side
   game.start

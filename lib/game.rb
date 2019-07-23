@@ -13,6 +13,9 @@ class Game
     @board = Board.new
     @player1 = Player.new(1)
     @player2 = Player.new(2)
+  end
+
+  def ask_players_name
     @player1.set_name
     @player2.set_name
   end
