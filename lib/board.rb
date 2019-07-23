@@ -33,7 +33,8 @@ end
 
 #  board class create new board when init
 class Board
-  attr_reader :moves, :cells, :has_no_winner
+  attr_reader :cells
+  attr_accessor :has_no_winner, :moves
   def initialize
     @cells = [[1, 2, 3],
               [4, 5, 6],
@@ -67,5 +68,13 @@ class Board
     Display.show_board @cells
     game_over?(parent_pos, child_pos, side, name)
     @cells
+  end
+
+  def not_over?
+    !@moves.zero? && @has_no_winner
+  end
+
+  def draw?
+    @moves.zero? && @has_no_winner
   end
 end

@@ -14,7 +14,7 @@ def start_game
   game.set_player2_side
   game.start
 
-  Display.draw if game.board.moves.zero? && game.board.has_no_winner
+  Display.draw if game.board.draw?
 end
 
 def again_want_to?

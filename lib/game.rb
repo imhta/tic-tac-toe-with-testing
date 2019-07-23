@@ -65,7 +65,7 @@ class Game
   end
 
   def game_loop
-    while !@board.moves.zero? && @board.has_no_winner
+    while @board.not_over?
       ask_move
       @board.update(
         @pos.to_i,

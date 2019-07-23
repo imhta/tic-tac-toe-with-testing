@@ -53,4 +53,10 @@ RSpec.describe Board do
       expect(@board.has_no_winner).to be(false), 'game is not over (diagonal)'
     end
   end
+  describe '#draw?' do
+    it 'checks whether there is a draw or not' do
+      @board.moves = 0
+      expect(@board.draw?).to be true
+    end
+  end
 end

@@ -50,15 +50,25 @@ RSpec.describe Game do
       $stdin = STDIN
     end
   end
-  describe "#start" do 
-    before do 
-      allow(game).to receive(:game_loop).and_return(nil) 
-    end 
-    it "checks for the turn and valid move" do 
+  describe '#start' do
+    before do
+      allow(game).to receive(:game_loop).and_return(nil)
+    end
+    it 'checks for the turn and valid move' do
       expect(game).to receive(:game_loop).once
       game.start
-      expect(game.turn).to eq(1), "turn not equal to 1"
-      expect(game.valid_move).to eq(false), "valid move is not false"
-    end 
-  end 
+      expect(game.turn).to eq(1), 'turn not equal to 1'
+      expect(game.valid_move).to eq(false), 'valid move is not false'
+    end
+  end
+
+  describe 'over?' do
+    it 'checks whether the game is over or not' do
+      puts game.board.has_no_winner
+      game.board.has_no_winner = false
+      expect(game.board.not_over?).to be false
+    end
+  end
+
+ 
 end
