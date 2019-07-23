@@ -23,12 +23,14 @@ class Game
   def ask_player1_side
     loop do
       @player1.side = Player.ask_side @player1.name
-      break if @player1.side == 'X' || @player1.side == 'O'
+      break if valid_player_side?
 
       Error.not_valid_side
     end
   end
-
+  def valid_player_side?
+    @player1.side == 'X' || @player1.side == 'O'
+  end
   def set_player2_side
     @player2.side = @player1.side == 'X' ? 'O' : 'X'
   end
