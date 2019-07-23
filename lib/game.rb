@@ -23,10 +23,14 @@ class Game
   def ask_player1_side
     loop do
       @player1.side = Player.ask_side @player1.name
-      Error.not_valid_side
+      break if valid_player_side?
 
-      break if @player1.side == 'X' || @player1.side == 'O'
+      Error.not_valid_side
     end
+  end
+
+  def valid_player_side?
+    @player1.side == 'X' || @player1.side == 'O'
   end
 
   def set_player2_side
@@ -38,7 +42,6 @@ class Game
     @valid_move = false
     Display.show_board @board.cells
     game_loop
-    Display.draw if @board.moves.zero? && @board.has_no_winner
   end
 
   private

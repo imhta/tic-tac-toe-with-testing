@@ -13,6 +13,8 @@ def start_game
   game.ask_player1_side
   game.set_player2_side
   game.start
+
+  Display.draw if game.board.moves.zero? && game.board.has_no_winner
 end
 
 def again_want_to?
