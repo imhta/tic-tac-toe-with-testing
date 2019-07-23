@@ -71,6 +71,4 @@ class Game
       @valid_move = false
     end
   end
-
-
 end
