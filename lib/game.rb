@@ -8,7 +8,7 @@ require 'colorize'
 
 # class game to maintain the state of the game
 class Game
-  attr_accessor :board, :player1, :player2, :turn
+  attr_accessor :board, :player1, :player2, :turn, :valid_move
   def initialize
     @board = Board.new
     @player1 = Player.new(1)
