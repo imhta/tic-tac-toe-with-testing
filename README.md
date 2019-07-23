@@ -12,6 +12,10 @@ Ruby CLI implementation of tic tac toe game with testing
 bundle install
 ruby bin/main.rb
 ```
+#### Test
+```
+rspec
+```
 
 ## Live version
 Repl.it: [Preview](https://repl.it/@ponmuthuselvam/tic-tac-toe)
