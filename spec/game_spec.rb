@@ -61,14 +61,4 @@ RSpec.describe Game do
       expect(game.valid_move).to eq(false), 'valid move is not false'
     end
   end
-
-  describe 'over?' do
-    it 'checks whether the game is over or not' do
-      puts game.board.has_no_winner
-      game.board.has_no_winner = false
-      expect(game.board.not_over?).to be false
-    end
-  end
-
- 
 end

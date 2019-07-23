@@ -59,4 +59,11 @@ RSpec.describe Board do
       expect(@board.draw?).to be true
     end
   end
+  describe '#not_over?' do
+    it 'checks whether the game is over or not' do
+      puts @board.has_no_winner
+      @board.has_no_winner = false
+      expect(@board.not_over?).to be false
+    end
+  end
 end
