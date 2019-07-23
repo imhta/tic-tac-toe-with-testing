@@ -9,6 +9,7 @@ Ruby CLI implementation of tic tac toe game with testing
 * Rspec
 #### Run
 ```
+bundle install
 ruby bin/main.rb
 ```
 
