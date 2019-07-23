@@ -21,7 +21,7 @@ RSpec.describe Player do
       $stdin = STDIN
     end
   end
-  describe '#ask_side' do
+  describe ':ask_side' do
     before do
       $stdin = StringIO.new("X\n")
     end
